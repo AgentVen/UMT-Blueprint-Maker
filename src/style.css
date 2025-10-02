@@ -1,0 +1,40 @@
+body {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-weight: 500;
+	font-style: normal;
+	font-size: 16px;
+}
+
+.welcome-title {
+	display: inline-flex;
+	flex-direction: row;
+}
+
+.welcome-title div {
+	display: inline-flex;
+	flex-direction: column;
+}
+
+.welcome-title h1 {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-weight: 600;
+	font-style: normal;
+	font-size: 25px;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.welcome-title h2 {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-weight: 500;
+	font-style: italic;
+	font-size: 20px;
+	margin-top: 5px;
+	margin-bottom: 0;
+}
+
+.welcome-title img {
+	height: 60px;
+	vertical-align: middle;
+	padding-right: 10px;
+}
