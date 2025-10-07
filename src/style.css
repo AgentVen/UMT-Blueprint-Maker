@@ -53,35 +53,19 @@ body {
 	padding-right: 5px;
 	padding-bottom: 3px;
 	padding-top: 0;
-}
-
-.topbar .menu-bar ul .menu-list-item:hover {
-	background-color: #DDDDDD;
-
-	& .menu-button {
-		background-color: #DDDDDD;
-	}
-}
-
-.topbar .menu-bar ul .menu-list-item .menu-button {
+	cursor: pointer;
 	text-align: center;
 	font-size: 16px;
 	font-family: monospace;
 	font-weight: 500;
 	color: #555555;
-	height: fit-content;
-	width: fit-content;
-	padding: 0;
-	border-radius: 0;
-	border: 0 solid #555555;
-	cursor: pointer;
 	text-underline-offset: 5px;
 }
 
-.topbar .menu-bar ul .menu-list-item .menu-button.selected {
+.topbar .menu-bar ul .menu-list-item.selected {
 	text-decoration: underline;
 }
 
-.topbar .menu-bar ul .menu-list-item .menu-button:hover {
+.topbar .menu-bar ul .menu-list-item:hover {
 	background-color: #DDDDDD;
 }

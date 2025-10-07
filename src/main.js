@@ -5,28 +5,62 @@ const menuItems = document.querySelectorAll('.menu-list-item');
 
 
 function menuSelected(index) {
-	menuItems.forEach((element, i) => {
-		const button = element.querySelector('.menu-button');
+	let isAMenuSelected = false;
 
-		const isSelected = button.classList.contains('selected');
+	menuItems.forEach((element, i) => {
+		const isSelected = element.classList.contains('selected');
+
 		if (!isSelected && i === index) {
-			button.classList.add('selected');
-			selectionMade = index;
+			element.classList.add('selected');
+			isAMenuSelected = true;
 		} else {
-			button.classList.remove('selected');
+			element.classList.remove('selected');
 		}
 	});
+	
+	return isAMenuSelected;
+}
+
+function getSelectedMenu() {
+	
+	menuItems.forEach((element) => {
+		if (element.classList.contains('selected')) {
+			return element;
+		}
+	});
+
+	return null;
 }
 
 
 window.addEventListener('DOMContentLoaded', () => {
 
-	menuItems.forEach((element, i) => {
-		const button = element.querySelector('.menu-button');
+	// Menu list selection logic
 
-		button.addEventListener('click', () => {
-			menuSelected(i);
+	let isAMenuSelected = false;
+	menuItems.forEach((element, i) => {
+
+		element.addEventListener('click', () => {
+			isAMenuSelected = menuSelected(i);
 		});
+
+		// [TODO][FIXME]
+		element.addEventListener('mouseenter', () => {
+			const theSelectedMenu = getSelectedMenu();
+
+			if (theSelectedMenu !== null && theSelectedMenu !== this) {
+				isAMenuSelected = menuSelected(i);
+			}
+		});
+	});
+	
+	// Deselect all if we didn't click on a menu
+	document.addEventListener('click', () => {
+		if (!isAMenuSelected) {
+			menuSelected(-1);
+		} else {
+			isAMenuSelected = false;
+		}
 	});
 	
 });
