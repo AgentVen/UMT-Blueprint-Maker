@@ -1,18 +1,31 @@
 console.log("Started")
 
 
-window.addEventListener('DOMContentLoaded', () => {
-	const menuItems = document.querySelectorAll('.menu-list-item');
+const menuItems = document.querySelectorAll('.menu-list-item');
 
-	menuItems.forEach((element) => {
+
+function menuSelected(index) {
+	menuItems.forEach((element, i) => {
+		const button = element.querySelector('.menu-button');
+
+		const isSelected = button.classList.contains('selected');
+		if (!isSelected && i === index) {
+			button.classList.add('selected');
+			selectionMade = index;
+		} else {
+			button.classList.remove('selected');
+		}
+	});
+}
+
+
+window.addEventListener('DOMContentLoaded', () => {
+
+	menuItems.forEach((element, i) => {
 		const button = element.querySelector('.menu-button');
 
 		button.addEventListener('click', () => {
-			if (!button.classList.contains('selected')) {
-				button.classList.add('selected');
-			} else {
-				button.classList.remove('selected');
-			}
+			menuSelected(i);
 		});
 	});
 	
