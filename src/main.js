@@ -1,20 +1,21 @@
-console.log("Started")
+console.log('Started');
 
 
-const menuItems = document.querySelectorAll('.menu-list-item');
+const topbar = document.querySelector('#topbar');
+const menuList = topbar.querySelectorAll('.menu-list-item');
 
 
 function menuSelected(index) {
 	let isAMenuSelected = false;
 
-	menuItems.forEach((element, i) => {
-		const isSelected = element.classList.contains('selected');
+	menuList.forEach((menuListItem, i) => {
+		const isSelected = menuListItem.classList.contains('selected');
 
 		if (!isSelected && i === index) {
-			element.classList.add('selected');
+			menuListItem.classList.add('selected');
 			isAMenuSelected = true;
 		} else {
-			element.classList.remove('selected');
+			menuListItem.classList.remove('selected');
 		}
 	});
 	
@@ -23,9 +24,9 @@ function menuSelected(index) {
 
 function getSelectedMenu() {
 	
-	menuItems.forEach((element) => {
-		if (element.classList.contains('selected')) {
-			return element;
+	menuList.forEach((menuListItem) => {
+		if (menuListItem.classList.contains('selected')) {
+			return menuListItem;
 		}
 	});
 
@@ -35,23 +36,15 @@ function getSelectedMenu() {
 
 window.addEventListener('DOMContentLoaded', () => {
 
-	// Menu list selection logic
-
+	// Menu selection
 	let isAMenuSelected = false;
-	menuItems.forEach((element, i) => {
+	menuList.forEach((menuListItem, i) => {
+		const button = menuListItem.querySelector('.menu-button');
 
-		element.addEventListener('click', () => {
+		button.addEventListener('click', () => {
 			isAMenuSelected = menuSelected(i);
 		});
 
-		// [TODO][FIXME]
-		element.addEventListener('mouseenter', () => {
-			const theSelectedMenu = getSelectedMenu();
-
-			if (theSelectedMenu !== null && theSelectedMenu !== this) {
-				isAMenuSelected = menuSelected(i);
-			}
-		});
 	});
 	
 	// Deselect all if we didn't click on a menu
@@ -62,5 +55,16 @@ window.addEventListener('DOMContentLoaded', () => {
 			isAMenuSelected = false;
 		}
 	});
-	
+
+	// [FIXME]
+	menuList.forEach((menuListItem) => {
+		const dropdown = menuListItem.querySelector('.menu-dropdown');
+		const isOpened = dropdown.classList.contains('opened');
+
+		if (menuListItem.classList.contains('selected') && !isOpened) {
+			dropdown.classList.add('opened');
+		} else if (isOpened) {
+			dropdown.classList.remove('opened');
+		}
+	});
 });
