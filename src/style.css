@@ -17,17 +17,48 @@ body {
 	font-size: 16px;
 }
 
-.topbar {
+header {
+	display: block flex;
+	flex-direction: column;
+	position: fixed;
+	top: 0; bottom: calc(100% - 32px);
+	right: 0; left: 0;
+	width: 100%;
+}
+
+main {
+	display: block;
+	position: fixed;
+	top: 32px; bottom: 32px;
+	right: 0; left: 0;
+	width: 100%;
+}
+
+footer {
+	display: block;
+	position: fixed;
+	top: calc(100% - 16px); bottom: 0;
+	right: 0; left: 0;
+	width: 100%;
+
+	padding-left: 3px;
+	font-weight: 100;
+	font-size: 12px;
+	color: #7F7F7F;
+}
+
+#topbar {
 	--topbar-background-color: #EEEEEE;
 	--topbar-border-color: #EAEAEA;
 	--topbar-text-color: #555555;
+	--topbar-hover-background-color: #DDDDDD;
 
 	display: flex;
 	flex-direction: row;
 	width: 100%;
 	min-height: 32px;
 	max-height: fit-content;
-	position: fixed;
+	position: relative;
 	top: 0;
 	bottom: 0;
 	right: 0;
@@ -37,7 +68,7 @@ body {
 	border-bottom-width: 1px;
 }
 
-.topbar img {
+#topbar #topbar-inno-logo {
 	height: 22px;
 	vertical-align: middle;
 	align-self: flex-start;
@@ -47,7 +78,7 @@ body {
 	margin-bottom: 5px;
 }
 
-.topbar .menu-bar {
+#topbar .menu-bar {
 	display: inline-block;
 	width: fit-content;
 	height: inherit;
@@ -55,25 +86,16 @@ body {
 	margin-bottom: 4px;
 }
 
-.topbar .menu-bar ul {
+#topbar .menu-bar ul {
 	display: flex;
 	list-style-type: none;
 	padding-left: 0;
 	margin: 0;
 }
 
-.topbar .menu-bar ul .menu-list-item {
+#topbar .menu-bar ul .menu-list-item {
 	display: block;
 	width: auto;
-}
-
-.topbar .menu-bar ul .menu-list-item.selected {
-	& .menu-button {
-		text-decoration: underline;
-	}
-}
-
-.topbar .menu-bar ul .menu-list-item .menu-button {
 	border-radius: 0;
 	border: 0;
 	padding-left: 5px;
@@ -89,24 +111,35 @@ body {
 	text-underline-offset: 5px;
 }
 
-.topbar .menu-bar ul .menu-list-item .menu-button:hover {
-	background-color: #DDDDDD;
+#topbar .menu-bar ul .menu-list-item:hover {
+	background-color: var(--topbar-hover-background-color);
 }
 
-.topbar .menu-bar ul .menu-list-item .menu-dropdown {
+#topbar .menu-bar ul .menu-list-item.selected {
+	text-decoration: underline;
+}
+
+#menu-panel-container {
+	display: flex;
+	position: relative;
+	z-index: 998;
+	left: 32px;
+	height: fit-content;
+}
+
+#menu-panel-container .menu-panel {
 	display: none;
 	position: fixed;
 	z-index: 998;
 	margin-top: 5px;
-	min-width: auto;
-	max-width: 20em;
-	min-height: auto;
-	max-height: 33%;
+	max-width: fit-content;
+	height: fit-content;
 	padding: 3px;
 	background-color: var(--topbar-background-color);
 	border: 1px solid var(--topbar-border-color);
+	list-style-type: none;
 }
 
-.topbar .menu-bar ul .menu-list-item .menu-dropdown.opened {
+#menu-panel-container .menu-panel.opened {
 	display: block;
 }
