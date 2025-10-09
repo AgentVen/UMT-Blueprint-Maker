@@ -18,6 +18,11 @@ body {
 }
 
 header {
+	--topbar-background-color: #EEEEEE;
+	--topbar-border-color: #EAEAEA;
+	--topbar-text-color: #555555;
+	--topbar-hover-background-color: #DDDDDD;
+
 	display: block flex;
 	flex-direction: column;
 	position: fixed;
@@ -48,11 +53,6 @@ footer {
 }
 
 #topbar {
-	--topbar-background-color: #EEEEEE;
-	--topbar-border-color: #EAEAEA;
-	--topbar-text-color: #555555;
-	--topbar-hover-background-color: #DDDDDD;
-
 	display: flex;
 	flex-direction: row;
 	width: 100%;
@@ -130,11 +130,11 @@ footer {
 #menu-panel-container .menu-panel {
 	display: none;
 	position: fixed;
-	z-index: 998;
 	margin-top: 5px;
 	max-width: fit-content;
 	height: fit-content;
 	padding: 3px;
+	margin: 0;
 	background-color: var(--topbar-background-color);
 	border: 1px solid var(--topbar-border-color);
 	list-style-type: none;

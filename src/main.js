@@ -15,13 +15,17 @@ function menuSelected(index) {
 	let isAMenuSelected = false;
 
 	menuList.forEach((menuListItem, i) => {
+		const menuPanel = menuPanelContainer.querySelector(`#menu-panel-${i}`);
 		const isSelected = menuListItem.classList.contains('selected');
 
 		if (!isSelected && i === index) {
 			menuListItem.classList.add('selected');
+			menuPanel.classList.add('opened');
+
 			isAMenuSelected = true;
 		} else {
 			menuListItem.classList.remove('selected');
+			menuPanel.classList.remove('opened');
 		}
 	});
 	
@@ -32,21 +36,30 @@ function getSelectedMenu() {
 	
 	menuList.forEach((menuListItem) => {
 		if (menuListItem.classList.contains('selected')) {
-			return menuListItem;
+			return menuListItem, i;
 		}
 	});
 
-	return null;
+	return null, -1;
 }
 
 
 window.addEventListener('DOMContentLoaded', () => {
 
+	// Adjust scales and positions of menu panels
+
 	document.getElementById('menu-panel-container').style.width = `${document.querySelector('.menu-bar').scrollWidth}px`;
 
+	let leftOffset = 0
 	menuPanels.forEach((menuPanel, i) => {
-		const width = document.querySelector(`#menu-list-item-${i}`).scrollWidth
+		const width = document.querySelector(`#menu-list-item-${i}`).scrollWidth;
 		menuPanel.style.minWidth = `${width}px`;
+		
+		if (leftOffset > 0) {
+			menuPanel.style.marginLeft = `${leftOffset}px`
+		}
+
+		leftOffset += width
 	});
 
 
