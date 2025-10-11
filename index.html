@@ -14,10 +14,13 @@
 	<header>
 		<div id="topbar">
 			<img id="topbar-inno-logo" src="/InnovationInc_Logo.svg" alt="" />
-			<ul id="menu-selector">
-				<li id="menu-selection-0" class="menu-selection">File</li>
-				<li id="menu-selection-1" class="menu-selection">Info</li>
-			</ul>
+			<div id="menu-selector">
+				<button id="menu-selection-0" class="menu-selection" type="button">File</button>
+				<button id="menu-selection-1" class="menu-selection" type="button">Edit</button>
+				<button id="menu-selection-2" class="menu-selection" type="button">View</button>
+				<button id="menu-selection-3" class="menu-selection" type="button" disabled>Simulate</button>
+				<button id="menu-selection-4" class="menu-selection" type="button">Help</button>
+			</div>
 		</div>
 		<div id="menu-panel-container">
 			<ul id="menu-panel-0" class="menu-panel">
@@ -35,7 +38,14 @@
 			</ul>
 			<ul id="menu-panel-1" class="menu-panel">
 				<li id="menu-panel-section-1-0" class="menu-panel-section">
-					<button id="menu-panel-item-1-0-0" class="menu-panel-item" type="button">About</button>
+					<button id="menu-panel-item-1-0-0" class="menu-panel-item" type="button" value="sub-menu-panel">Settings</button>
+				</li>
+			</ul>
+			<ul id="menu-panel-2" class="menu-panel"></ul>
+			<ul id="menu-panel-3" class="menu-panel"></ul>
+			<ul id="menu-panel-4" class="menu-panel">
+				<li id="menu-panel-section-4-0" class="menu-panel-section">
+					<button id="menu-panel-item-4-0-0" class="menu-panel-item" type="button">About</button>
 				</li>
 			</ul>
 		</div>
