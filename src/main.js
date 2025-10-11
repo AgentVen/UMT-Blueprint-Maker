@@ -5,31 +5,32 @@ const header = document.querySelector('header');
 const main = document.querySelector('main');
 const footer = document.querySelector('footer');
 
-const topbar = header.querySelector('#topbar');
-const menuList = topbar.querySelectorAll('.menu-list-item');
-const menuPanelContainer = header.querySelector('#menu-panel-container');
-const menuPanels = menuPanelContainer.querySelectorAll('.menu-panel');
+const elTopbar = header.querySelector('#topbar');
+const elMenuSelector = elTopbar.querySelector('#menu-selector');
+const menuSelections = elMenuSelector.querySelectorAll('.menu-selection');
+const elMenuPanelContainer = header.querySelector('#menu-panel-container');
+const menuPanels = elMenuPanelContainer.querySelectorAll('.menu-panel');
 
 
 
 // Adjust scales and positions of menu panels
 {
-	// Adjust the min-width of the #menu-panel-container to that of the #menu-bar's width.
-	document.getElementById('menu-panel-container').style.minWidth = `${document.querySelector('#menu-bar').scrollWidth}px`;
+	// Adjust the min-width of the #menu-panel-container to that of the #menu-selector's width.
+	elMenuPanelContainer.style.minWidth = `${elMenuSelector.scrollWidth}px`;
 
 	let leftOffset = 0
 	menuPanels.forEach((menuPanel, i) => {
 
 		// Adjust the min-widths of each .menu-panel to match the width of their 
-		// corresponding .menu-list-item.
+		// corresponding .menu-selection.
 		// 
 		// Then add the width to an offset that will be used to apply a margin-left
 		// to subsequent .menu-panels, so that their left edge is aligned with their
-		// corresponding .menu-list-item's left edge.
+		// corresponding .menu-selection's left edge.
 		// (this is not done for #menu-panel-0 as #menu-panel-container should be 
-		// aligned with left edge of the #menu-bar)
+		// aligned with left edge of the #menu-selector)
 
-		const width = document.querySelector(`#menu-list-item-${i}`).scrollWidth;
+		const width = menuSelections.item(i).scrollWidth;
 		menuPanel.style.minWidth = `${width}px`;
 		
 		if (leftOffset > 0) {
@@ -69,20 +70,20 @@ const menuPanels = menuPanelContainer.querySelectorAll('.menu-panel');
 }
 
 
-function menuSelected(index) {
+function setSelectedMenu(index) {
 	let wasAMenuSelected = false;
 
-	menuList.forEach((menuListItem, i) => {
-		const menuPanel = menuPanelContainer.querySelector(`#menu-panel-${i}`);
-		const isSelected = menuListItem.classList.contains('selected');
+	menuSelections.forEach((menuSelection, i) => {
+		const menuPanel = menuPanels.item(i);
+		const isSelected = menuSelection.classList.contains('selected');
 
 		if (!isSelected && i === index) {
-			menuListItem.classList.add('selected');
+			menuSelection.classList.add('selected');
 			if (menuPanel) { menuPanel.classList.add('opened'); }
 
 			wasAMenuSelected = true;
 		} else {
-			menuListItem.classList.remove('selected');
+			menuSelection.classList.remove('selected');
 			if (menuPanel) { menuPanel.classList.remove('opened'); }
 		}
 	});
@@ -102,12 +103,12 @@ function getSelectedMenu() {
 
 // Menu selection logic
 {
-	let wasAMenuElementBeenClicked = false;
+	let wasAMenuElementClicked = false;
 
 	// Setup event listeners for each menu-list-item
-	menuList.forEach((menuListItem, i) => {
-		menuListItem.addEventListener('click', () => {
-			wasAMenuElementBeenClicked = menuSelected(i);
+	menuSelections.forEach((menuSelection, i) => {
+		menuSelection.addEventListener('click', () => {
+			wasAMenuElementClicked = setSelectedMenu(i);
 		});
 	});
 
@@ -119,7 +120,7 @@ function getSelectedMenu() {
 			menuPanelItem.addEventListener('click', () => {
 				console.log(`${menuPanelItem.id} clicked`); //TODO))
 
-				wasAMenuElementBeenClicked = true;
+				wasAMenuElementClicked = true;
 			});
 		});
 	});
@@ -130,10 +131,10 @@ function getSelectedMenu() {
 	// then deselect any selected menu. Otherwise, reset 
 	// wasAMenuElementBeenClicked back to false for the next click.
 	document.addEventListener('click', () => {
-		if (!wasAMenuElementBeenClicked) {
-			menuSelected(-1);
+		if (!wasAMenuElementClicked) {
+			setSelectedMenu(-1);
 		} else {
-			wasAMenuElementBeenClicked = false;
+			wasAMenuElementClicked = false;
 		}
 	});
 }

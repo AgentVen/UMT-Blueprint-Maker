@@ -22,13 +22,14 @@ header {
 	--topbar-border-color: #EAEAEA;
 	--topbar-text-color: #555555;
 	--topbar-hover-background-color: #DDDDDD;
+	--disabled-text-color: #858585;
 
 	z-index: 100;
 	display: block flex;
 	flex-direction: column;
 	position: fixed;
 	top: 0; bottom: calc(100% - 32px);
-	right: 0; left: 0;
+	left: 0; right: 0;
 	width: 100%;
 }
 
@@ -37,7 +38,7 @@ main {
 	display: block;
 	position: fixed;
 	top: 32px; bottom: 32px;
-	right: 0; left: 0;
+	left: 0; right: 0;
 	width: 100%;
 }
 
@@ -46,7 +47,7 @@ footer {
 	display: block;
 	position: fixed;
 	top: calc(100% - 16px); bottom: 0;
-	right: 0; left: 0;
+	left: 0; right: 0;
 	width: 100%;
 	padding-left: 3px;
 	font-weight: 100;
@@ -54,52 +55,43 @@ footer {
 	color: #7F7F7F;
 }
 
+
 #topbar {
 	z-index: 101;
 	display: flex;
 	flex-direction: row;
+	position: relative;
+	top: 0; bottom: 0;
+	left: 0; right: 0;
 	width: 100%;
 	min-height: 32px;
 	max-height: fit-content;
-	position: relative;
-	top: 0;
-	bottom: 0;
-	right: 0;
-	left: 0;
-	background-color: var(--topbar-background-color);
 	border: 0 solid var(--topbar-border-color);
 	border-bottom-width: 1px;
+	background-color: var(--topbar-background-color);
 }
 
 #topbar #topbar-inno-logo {
 	z-index: inherit;
-	height: 22px;
 	vertical-align: middle;
 	align-self: flex-start;
-	margin-top: 5px;
-	margin-left: 5px;
-	margin-right: 5px;
-	margin-bottom: 5px;
+	height: 22px;
+	margin: 5px;
 }
 
-#topbar #menu-bar {
+#topbar #menu-selector {
 	z-index: inherit;
-	display: inline-block;
+	display: block flex;
 	width: fit-content;
 	height: inherit;
-	margin-top: 5px;
-	margin-bottom: 4px;
-}
-
-#topbar #menu-bar ul {
-	z-index: inherit;
-	display: flex;
-	list-style-type: none;
-	padding-left: 0;
 	margin: 0;
+	margin-top: 5px; margin-bottom: 4px;
+	padding-left: 0;
+	list-style-type: none;
 }
 
-#topbar #menu-bar ul .menu-list-item {
+
+#topbar #menu-selector .menu-selection {
 	z-index: inherit;
 	display: block;
 	width: auto;
@@ -116,19 +108,19 @@ footer {
 	cursor: pointer;
 }
 
-#topbar #menu-bar ul .menu-list-item:hover {
+#topbar #menu-selector .menu-selection:hover {
 	background-color: var(--topbar-hover-background-color);
 }
 
-#topbar #menu-bar ul .menu-list-item.selected {
+#topbar #menu-selector .menu-selection.selected {
 	text-decoration: underline;
 }
+
 
 #menu-panel-container {
 	z-index: 105;
 	display: flex;
 	position: relative;
-	z-index: 998;
 	left: 32px;
 	max-width: fit-content;
 	height: fit-content;
@@ -181,10 +173,11 @@ footer {
 	cursor: pointer;
 }
 
-#menu-panel-container .menu-panel .menu-panel-item:hover {
+#menu-panel-container .menu-panel .menu-panel-item:hover:enabled {
 	background-color: var(--topbar-hover-background-color);
 }
 
-#menu-panel-container .menu-panel .menu-panel-item.selected {
-	text-decoration: underline;
+#menu-panel-container .menu-panel .menu-panel-item:disabled {
+	color: var(--disabled-text-color);
+	cursor: default;
 }
