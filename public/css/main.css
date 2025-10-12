@@ -64,8 +64,7 @@ footer {
 	top: 0; bottom: 0;
 	left: 0; right: 0;
 	width: 100%;
-	min-height: 32px;
-	max-height: fit-content;
+	height: fit-content;
 	border: 0 solid var(--topbar-border-color);
 	border-bottom-width: 1px;
 	background-color: var(--topbar-background-color);
@@ -82,6 +81,7 @@ footer {
 #topbar #menu-selector {
 	z-index: 102;
 	display: block flex;
+	align-self: flex-end;
 	width: fit-content;
 	height: inherit;
 	margin: 0;
@@ -124,7 +124,6 @@ footer {
 	z-index: 105;
 	display: flex;
 	position: relative;
-	left: 32px;
 	max-width: fit-content;
 	height: fit-content;
 }

@@ -18,6 +18,16 @@ const menuPanels = elMenuPanelContainer.querySelectorAll('.menu-panel');
 	// Adjust the min-width of the #menu-panel-container to that of the #menu-selector's width.
 	elMenuPanelContainer.style.minWidth = `${elMenuSelector.scrollWidth}px`;
 
+	// Adjust the left position of the #menu-panel-container so that its left edge lines up with #menu-selector's left edge
+	{
+		const elTopbarInnoLogo = elTopbar.querySelector('#topbar-inno-logo');
+		const topbarInnoLogoComputedStyleMap = elTopbarInnoLogo.computedStyleMap();
+		const marginLeft = topbarInnoLogoComputedStyleMap.get('margin-left');
+		const marginRight = topbarInnoLogoComputedStyleMap.get('margin-right');
+		elMenuPanelContainer.style.left = `calc(${elTopbarInnoLogo.scrollWidth}px + ${marginLeft.value}${marginLeft.unit} + ${marginRight.value}${marginRight.unit})`;
+	}
+
+	
 	let leftOffset = 0
 	menuPanels.forEach((menuPanel, i) => {
 
