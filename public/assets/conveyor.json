@@ -1,0 +1,18 @@
+{
+	"Format": "0.0.0",
+	"Name": "Conveyor",
+	"Category": "Transport",
+	"Cost": "$10",
+	"Dimensions": { "X": 1, "Y": 1, "Z": 1 },
+	"Layout": [
+		[
+			{
+				"Type": "Image",
+				"File": "./conveyor.svg",
+				"FromArea": { "X": 0, "Width": 300, "Y": 0, "Height": 300 },
+				"ToArea": { "X": 0, "Width": 1, "Y": 0, "Height": 1 },
+				"Zindex": 0
+			}
+		]
+	]
+}
