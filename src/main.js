@@ -20,7 +20,7 @@ const menuPanels = elMenuPanelContainer.querySelectorAll('.menu-panel');
 
 	// Adjust the left position of the #menu-panel-container so that its left edge lines up with #menu-selector's left edge
 	{
-		const elTopbarInnoLogo = elTopbar.querySelector('#topbar-inno-logo');
+		const elTopbarInnoLogo = elTopbar.querySelector('#innovation-inc-logo');
 		const topbarInnoLogoComputedStyleMap = elTopbarInnoLogo.computedStyleMap();
 		const marginLeft = topbarInnoLogoComputedStyleMap.get('margin-left');
 		const marginRight = topbarInnoLogoComputedStyleMap.get('margin-right');

@@ -10,12 +10,16 @@
 	box-sizing: border-box;
 }
 
+
 body {
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	font-weight: 500;
 	font-style: normal;
 	font-size: 16px;
 }
+
+
+/* ---- MAIN BODY STRUCTURE START ---- */
 
 header {
 	--topbar-background-color: #EEEEEE;
@@ -55,11 +59,17 @@ footer {
 	color: #7F7F7F;
 }
 
+/* ---- MAIN BODY STRUCTURE END ---- */
+
+
+/* ---- TOPBAR START ---- */
 
 #topbar {
 	z-index: 101;
 	display: flex;
 	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
 	position: relative;
 	top: 0; bottom: 0;
 	left: 0; right: 0;
@@ -70,7 +80,18 @@ footer {
 	background-color: var(--topbar-background-color);
 }
 
-#topbar #topbar-inno-logo {
+#topbar #left-side {
+	z-index: 102;
+	display: flex;
+	flex-direction: row;
+	position: relative;
+	top: 0; bottom: 0;
+	left: 0; right: 0;
+	width: fit-content;
+	height: inherit;
+}
+
+#topbar #left-side #innovation-inc-logo {
 	z-index: inherit;
 	vertical-align: middle;
 	align-self: flex-start;
@@ -78,8 +99,10 @@ footer {
 	margin: 5px;
 }
 
-#topbar #menu-selector {
-	z-index: 102;
+/* ---- MENU SELECTOR START ---- */
+
+#topbar #left-side #menu-selector {
+	z-index: inherit;
 	display: block flex;
 	align-self: flex-end;
 	width: fit-content;
@@ -88,8 +111,7 @@ footer {
 	margin-top: 5px; margin-bottom: 4px;
 }
 
-
-#topbar #menu-selector .menu-selection {
+#topbar #left-side #menu-selector .menu-selection {
 	z-index: inherit;
 	display: block;
 	width: auto;
@@ -106,22 +128,40 @@ footer {
 	cursor: pointer;
 }
 
-#topbar #menu-selector .menu-selection:hover:enabled {
+#topbar #left-side #menu-selector .menu-selection:hover:enabled {
 	background-color: var(--topbar-hover-background-color);
 }
 
-#topbar #menu-selector .menu-selection:disabled {
+#topbar #left-side #menu-selector .menu-selection:disabled {
 	color: var(--disabled-text-color);
 	cursor: default;
 }
 
-#topbar #menu-selector .menu-selection.selected {
+#topbar #left-side #menu-selector .menu-selection.selected {
 	text-decoration: underline;
 }
 
+/* ---- MENU SELECTOR END ---- */
+
+
+#topbar #right-side {
+	z-index: 101;
+	display: flex;
+	flex-direction: row;
+	position: relative;
+	top: 0; bottom: 0;
+	left: 0; right: 0;
+	width: fit-content;
+	height: inherit;
+}
+
+/* ---- TOPBAR END ---- */
+
+
+/* ---- MENU PANELS START ---- */
 
 #menu-panel-container {
-	z-index: 105;
+	z-index: 106;
 	display: flex;
 	position: relative;
 	max-width: fit-content;
@@ -183,3 +223,5 @@ footer {
 	color: var(--disabled-text-color);
 	cursor: default;
 }
+
+/* ---- MENU PANELS END ---- */
