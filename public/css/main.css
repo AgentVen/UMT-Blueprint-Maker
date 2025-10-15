@@ -109,6 +109,8 @@ footer {
 	height: inherit;
 	margin: 0;
 	margin-top: 5px; margin-bottom: 4px;
+	padding-left: 0;
+	list-style: none;
 }
 
 #topbar #left-side #menu-selector .menu-selection {
@@ -141,6 +143,66 @@ footer {
 	text-decoration: underline;
 }
 
+/* ---- MENU PANELS START ---- */
+
+#topbar #left-side #menu-selector .menu-panel {
+	z-index: inherit;
+	display: none;
+	list-style-type: none;
+	position: fixed;
+	max-width: fit-content;
+	height: fit-content;
+	padding-left: 0;
+	padding-top: 3px; padding-bottom: 3px;
+	margin: 0;
+	background-color: var(--topbar-background-color);
+	border: 1px solid var(--topbar-border-color);
+}
+
+#topbar #left-side #menu-selector .menu-panel.opened {
+	display: block;
+}
+
+#topbar #left-side #menu-selector .menu-panel .menu-panel-section {
+	z-index: inherit;
+	display: block;
+	width: 100%;
+	height: fit-content;
+	padding-top: 2px; padding-bottom: 2px;
+	padding-left: 3px; padding-right: 3px;
+	border-bottom: 1px solid #C8C8C8;
+}
+
+#topbar #left-side #menu-selector .menu-panel .menu-panel-item {
+	z-index: inherit;
+	display: block;
+	width: 100%;
+	height: fit-content;
+	margin-top: 2px; margin-bottom: 2px;
+	padding-top: 0; padding-bottom: 0;
+	padding-left: 3px; padding-right: 3px;
+	border: 0;
+	border-radius: 0;
+	text-align: left;
+	font-size: 16px;
+	font-family: monospace;
+	font-weight: 500;
+	color: var(--topbar-text-color);
+	text-underline-offset: 5px;
+	cursor: pointer;
+}
+
+#topbar #left-side #menu-selector .menu-panel .menu-panel-item:hover:enabled {
+	background-color: var(--topbar-hover-background-color);
+}
+
+#topbar #left-side #menu-selector .menu-panel .menu-panel-item:disabled {
+	color: var(--disabled-text-color);
+	cursor: default;
+}
+
+/* ---- MENU PANELS END ---- */
+
 /* ---- MENU SELECTOR END ---- */
 
 
@@ -160,6 +222,7 @@ footer {
 
 /* ---- MENU PANELS START ---- */
 
+/*
 #menu-panel-container {
 	z-index: 106;
 	display: flex;
@@ -223,5 +286,6 @@ footer {
 	color: var(--disabled-text-color);
 	cursor: default;
 }
+*/
 
 /* ---- MENU PANELS END ---- */

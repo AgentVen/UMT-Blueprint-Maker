@@ -8,27 +8,27 @@ const footer = document.querySelector('footer');
 const elTopbar = header.querySelector('#topbar');
 const elMenuSelector = elTopbar.querySelector('#menu-selector');
 const menuSelections = elMenuSelector.querySelectorAll('.menu-selection');
-const elMenuPanelContainer = header.querySelector('#menu-panel-container');
-const menuPanels = elMenuPanelContainer.querySelectorAll('.menu-panel');
+//const elMenuPanelContainer = header.querySelector('#menu-panel-container');
+const menuPanels = elMenuSelector.querySelectorAll('.menu-panel');
 
 
 
 // Adjust scales and positions of menu panels
 {
 	// Adjust the min-width of the #menu-panel-container to that of the #menu-selector's width.
-	elMenuPanelContainer.style.minWidth = `${elMenuSelector.scrollWidth}px`;
+	//elMenuPanelContainer.style.minWidth = `${elMenuSelector.scrollWidth}px`;
 
 	// Adjust the left position of the #menu-panel-container so that its left edge lines up with #menu-selector's left edge
-	{
+	/*{
 		const elTopbarInnoLogo = elTopbar.querySelector('#innovation-inc-logo');
 		const topbarInnoLogoComputedStyleMap = elTopbarInnoLogo.computedStyleMap();
 		const marginLeft = topbarInnoLogoComputedStyleMap.get('margin-left');
 		const marginRight = topbarInnoLogoComputedStyleMap.get('margin-right');
 		elMenuPanelContainer.style.left = `calc(${elTopbarInnoLogo.scrollWidth}px + ${marginLeft.value}${marginLeft.unit} + ${marginRight.value}${marginRight.unit})`;
-	}
+	}*/
 
 	
-	let leftOffset = 0
+	//let leftOffset = 0
 	menuPanels.forEach((menuPanel, i) => {
 
 		// Adjust the min-widths of each .menu-panel to match the width of their 
@@ -43,11 +43,11 @@ const menuPanels = elMenuPanelContainer.querySelectorAll('.menu-panel');
 		const width = menuSelections.item(i).scrollWidth;
 		menuPanel.style.minWidth = `${width}px`;
 		
-		if (leftOffset > 0) {
+		/*if (leftOffset > 0) {
 			menuPanel.style.marginLeft = `${leftOffset}px`
 		}
 
-		leftOffset += width
+		leftOffset += width*/
 
 
 		// Adjust children padding
