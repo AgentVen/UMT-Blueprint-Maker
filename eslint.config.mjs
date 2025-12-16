@@ -11,10 +11,12 @@ export default [
 		rules: {
 			'@stylistic/semi': ['error', 'always'],
 			'@stylistic/brace-style': ['error', '1tbs'],
-			'@stylistic/spaced-comments': ['off'],
 			'@stylistic/no-tabs': ['off'],
 			'@stylistic/indent': ['off'],
+			'@stylistic/spaced-comment': ['off'],
 			'@stylistic/no-multiple-empty-lines': ['off'],
+			'@stylistic/padded-blocks': ['off'],
+			'@stylictic/no-trailing-spaces': ['error', { "ignoreComments": true }],
 		},
 	},
 ];

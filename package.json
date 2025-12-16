@@ -7,10 +7,10 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
-		"preview": "vite preview",
-		"eslint": "eslint --stats js/*.js "
+		"dev": "vite dev src",
+		"build": "vite build src --outDir ../dist",
+		"preview": "vite preview src",
+		"eslint": "eslint --stats src/js/*.js "
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.39.2",
