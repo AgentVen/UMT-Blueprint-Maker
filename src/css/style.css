@@ -20,7 +20,7 @@ body {
 
 /* ---- MAIN BODY STRUCTURE START ---- */
 
-header {
+/*header {
 	--topbar-background-colour: #EEEEEE;
 	--topbar-background-colour-hover: #00000011;
 	--topbar-border-colour: #EAEAEA;
@@ -34,7 +34,7 @@ header {
 	top: 0; bottom: calc(100% - 32px);
 	left: 0; right: 0;
 	width: 100%;
-}
+}*/
 
 main {
 	--grid-background-colour: #F4FBFC;
