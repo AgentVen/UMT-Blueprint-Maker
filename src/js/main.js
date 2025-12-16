@@ -65,15 +65,15 @@ function setSelectedMenu(index) {
 
 		if (!isSelected && i === index) {
 			menuSelection.classList.add('selected');
-			if (menuPanel) { menuPanel.classList.add('opened'); }
+			if (menuPanel) menuPanel.classList.add('opened');
 
 			wasAMenuSelected = true;
 		} else {
 			menuSelection.classList.remove('selected');
-			if (menuPanel) { menuPanel.classList.remove('opened'); }
+			if (menuPanel) menuPanel.classList.remove('opened');
 		}
 	});
-	
+
 	return wasAMenuSelected;
 }
 
